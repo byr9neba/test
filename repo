@@ -1,0 +1,47 @@
+program SimpleCalculator;
+
+uses crt;
+
+var
+  num1, num2: real;
+  operation: char;
+  result: real;
+
+begin
+  clrscr;  // Очистка экрана
+  
+  writeln('Простой калькулятор');
+  writeln('Введите первое число:');
+  readln(num1);
+  
+  writeln('Введите операцию (+, -, *, /):');
+  readln(operation);
+  
+  writeln('Введите второе число:');
+  readln(num2);
+  
+  case operation of
+    '+': result := num1 + num2;
+    '-': result := num1 - num2;
+    '*': result := num1 * num2;
+    '/': 
+      begin
+        if num2 <> 0 then
+          result := num1 / num2
+        else
+        begin
+          writeln('Ошибка: Деление на ноль!');
+          exit;
+        end;
+      end;
+  else
+    begin
+      writeln('Неверная операция!');
+      exit;
+    end;
+  end;
+  
+  writeln('Результат: ', result:0:2);  // Вывод результата с двумя десятичными знаками
+  
+  readln;  // Ожидание нажатия Enter для закрытия программы
+end.
